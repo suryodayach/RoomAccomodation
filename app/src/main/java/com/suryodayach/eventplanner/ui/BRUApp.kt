@@ -36,26 +36,23 @@ import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import com.suryodayach.authentication.navigation.loginGraphRoute
 import com.suryodayach.core.common.R.*
-import com.suryodayach.core.designsystem.EventPlannerFloatingActionButton
 import com.suryodayach.core.designsystem.EventPlannerNavigationBar
 import com.suryodayach.core.designsystem.EventPlannerNavigationBarItem
 import com.suryodayach.core.designsystem.EventPlannerTopAppBar
-import com.suryodayach.eventplanner.navigation.EventPlannerNavHost
+import com.suryodayach.eventplanner.navigation.BRUniversityNavHost
 import com.suryodayach.eventplanner.navigation.TopLevelDestination
 import com.suryodayach.eventplanner.MainActivityUiState
 import com.suryodayach.feature.splash.navigation.splashScreen
 import com.suryodayach.feature.notes.navigation.groupsGraphRoutePattern
-import com.suryodayach.feature.notes.navigation.groupsRoute
-import com.suryodayach.feature.notes.navigation.newGroupPattern
 
 @OptIn(
     ExperimentalLayoutApi::class, ExperimentalComposeUiApi::class,
     ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class
 )
 @Composable
-fun EventPlannerApp(
+fun BRUApp(
     windowSizeClass: WindowSizeClass,
-    appState: EventPlannerAppState = rememberEventPlannerAppState(windowSizeClass = windowSizeClass),
+    appState: BRUAppState = rememberEventPlannerAppState(windowSizeClass = windowSizeClass),
     uiState: MainActivityUiState
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
@@ -111,7 +108,7 @@ fun EventPlannerApp(
                         titleRes = appState.appBarTitle,
                         navigationIcon = Icons.Default.ArrowBack,
                         navigationIconContentDescription = "Back Button",
-                        onNavigationClick = appState::navigateToRoomsScreen
+                        onNavigationClick = appState::navigateToPreviousScreen
                     )
 //                    if (appState.appCurrentRoute == newGroupPattern) {
 //                        EventPlannerTopAppBar(
@@ -129,7 +126,7 @@ fun EventPlannerApp(
                     is MainActivityUiState.LoginError -> loginGraphRoute
                 }
 
-                EventPlannerNavHost(
+                BRUniversityNavHost(
                     appState = appState, onShowSnackbar = { message, action ->
                         snackbarHostState.showSnackbar(
                             message = message,

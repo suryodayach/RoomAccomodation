@@ -31,13 +31,13 @@ fun rememberEventPlannerAppState(
     windowSizeClass: WindowSizeClass,
     coroutineScope: CoroutineScope = rememberCoroutineScope(),
     navController: NavHostController = rememberNavController(),
-): EventPlannerAppState {
+): BRUAppState {
     return remember(
         navController,
         coroutineScope,
         windowSizeClass,
     ) {
-        EventPlannerAppState(
+        BRUAppState(
             navController,
             coroutineScope,
             windowSizeClass
@@ -47,7 +47,7 @@ fun rememberEventPlannerAppState(
 
 
 @Stable
-class EventPlannerAppState(
+class BRUAppState(
     val navController: NavHostController,
     val coroutineScope: CoroutineScope,
     val windowSizeClass: WindowSizeClass,
@@ -131,6 +131,16 @@ class EventPlannerAppState(
             restoreState = true
         }
         navController.navigateToGroupsGraph(navOptions)
+    }
+
+    fun navigateToPreviousScreen() {
+        val navOptions = navOptions {
+            popUpTo(navController.graph.findStartDestination().id) {
+                saveState = true
+            }
+            restoreState = true
+        }
+        navController.popBackStack()
     }
 
     fun navigateToLoginScreen() {

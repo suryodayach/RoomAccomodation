@@ -9,7 +9,7 @@ import com.suryodayach.authentication.navigation.loginGraphRoute
 import com.suryodayach.authentication.navigation.navigateToLoginScreen
 import com.suryodayach.authentication.navigation.navigateToOtpVerificationScreen
 import com.suryodayach.authentication.navigation.navigateToSignUpScreen
-import com.suryodayach.eventplanner.ui.EventPlannerAppState
+import com.suryodayach.eventplanner.ui.BRUAppState
 import com.suryodayach.feature.splash.SplashScreen
 import com.suryodayach.feature.splash.navigation.splashScreen
 import com.suryodayach.feature.notes.navigation.groupDetailsScreen
@@ -20,8 +20,8 @@ import com.suryodayach.feature.notes.navigation.newGroupScreen
 import com.suryodayach.feature.notes.navigation.splitGroupsGraph
 
 @Composable
-fun EventPlannerNavHost(
-    appState: EventPlannerAppState,
+fun BRUniversityNavHost(
+    appState: BRUAppState,
     onShowSnackbar: suspend (String, String?) -> Boolean,
     modifier: Modifier = Modifier,
     startDestination: String = loginGraphRoute,

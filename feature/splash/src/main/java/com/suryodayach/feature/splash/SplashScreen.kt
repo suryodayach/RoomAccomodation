@@ -19,12 +19,5 @@ fun SplashScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
-        Image(
-            painter = painterResource(
-                id = com.suryodayach.core.common.R.drawable.fairshare_ui_splash_logo
-            ),
-            colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.primary),
-            contentDescription = "Splash"
-        )
     }
 }
