@@ -1,6 +1,7 @@
 package com.suryodayach.feature.notes.navigation
 
 import androidx.navigation.NavController
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.NavType
@@ -71,7 +72,9 @@ fun NavGraphBuilder.newGroupScreen(
     composable(
         route = newGroupPattern,
     ) {
-        NewGroupScreen()
+        NewGroupScreen(
+            onBackClick = onBackClick
+        )
     }
 }
 

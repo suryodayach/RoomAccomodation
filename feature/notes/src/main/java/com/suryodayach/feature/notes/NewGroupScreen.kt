@@ -17,9 +17,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.suryodayach.core.designsystem.EventPlannerPrimaryButton
 
 @Composable
 internal fun NewGroupScreen(
+    onBackClick: () -> Unit
 ) {
     Column(
         verticalArrangement = Arrangement.Center,
@@ -35,5 +37,8 @@ internal fun NewGroupScreen(
         )
         Spacer(modifier = Modifier.height(12.dp))
         Text("Room Booked!", style = MaterialTheme.typography.bodyLarge)
+
+        Spacer(modifier = Modifier.height(24.dp))
+        EventPlannerPrimaryButton(onClick = onBackClick, text = "Go to Rooms")
     }
 }

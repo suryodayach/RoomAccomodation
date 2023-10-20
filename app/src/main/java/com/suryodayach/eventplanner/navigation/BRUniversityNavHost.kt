@@ -40,7 +40,9 @@ fun BRUniversityNavHost(
                 navController.navigateToGroupDetails(it)
             },
             nestedGraphs = {
-                newGroupScreen { }
+                newGroupScreen(onBackClick = {
+                    navController.navigateToGroupsGraph()
+                })
                 groupDetailsScreen { }
             },
             onRoomBooked = {
@@ -59,6 +61,9 @@ fun BRUniversityNavHost(
             },
             onLoggedIn = {
                          navController.navigateToGroupsGraph()
+            },
+            onLoggedOut = {
+                navController.navigateToLoginScreen()
             },
             onShowSnackbar = onShowSnackbar,
         ) { }

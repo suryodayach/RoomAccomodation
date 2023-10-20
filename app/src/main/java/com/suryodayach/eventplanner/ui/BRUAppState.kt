@@ -13,6 +13,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import androidx.tracing.trace
 import com.suryodayach.authentication.navigation.loginScreen
+import com.suryodayach.authentication.navigation.navigateToLogOutScreen
 import com.suryodayach.authentication.navigation.navigateToLoginScreen
 import com.suryodayach.authentication.navigation.navigateToSignUpScreen
 import com.suryodayach.authentication.navigation.otpVerificationPattern
@@ -163,5 +164,16 @@ class BRUAppState(
             restoreState = true
         }
         navController.navigateToSignUpScreen(navOptions)
+    }
+
+    fun navigateToLogoutScreen() {
+        val navOptions = navOptions {
+            popUpTo(navController.graph.findStartDestination().id) {
+                saveState = true
+            }
+            launchSingleTop = true
+            restoreState = true
+        }
+        navController.navigateToLogOutScreen(navOptions)
     }
 }

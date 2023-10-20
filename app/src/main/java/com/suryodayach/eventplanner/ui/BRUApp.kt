@@ -96,12 +96,12 @@ fun BRUApp(
                 if (destination != null) {
                     EventPlannerTopAppBar(
                         titleRes = destination.titleText,
-                        actionIcon = drawable.fairshare_ui_notification_icon,
+                        actionIcon = drawable.ic_person_24,
                         actionIconContentDescription = "Notifications",
                         colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                             containerColor = Color.Transparent,
                         ),
-                        onActionClick = { },
+                        onActionClick = appState::navigateToLogoutScreen,
                     )
                 } else {
                     EventPlannerTopAppBar(

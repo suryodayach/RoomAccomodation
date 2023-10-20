@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.suryodayach.common.Utils.extractErrorMessage
 import com.suryodayach.common.di.MainDispatcher
 import com.suryodayach.core.authentication.LoginRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,6 +15,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class LogoutViewModel @Inject constructor(
     private val loginRepository: LoginRepository,
     @MainDispatcher private val dispatcher: CoroutineDispatcher
